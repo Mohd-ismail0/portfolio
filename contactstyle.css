@@ -4,50 +4,94 @@
 
 .form-cont{
     width: 70%;
-    padding: 30px;
-    margin-top: 150px;
+    padding: 40px;
+    margin-top: 170px;
     margin-left: 15%;
     margin-right: 15%;
     background-color: #0e2929;
-    border-radius: 20px;
-    margin-bottom: 50px;
+    border-radius: 12px;
+    margin-bottom: 70px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-bottom: 4px solid #fafc93;
+    animation: fadeIn 0.8s ease-in-out;
 }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 .form-cont h3{
     font-size: 3.5vmin;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
+    position: relative;
+    display: inline-block;
 }
+
+.form-cont h3::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #fafc93;
+    border-radius: 500px;
+}
+
 .form1{
     margin: 1px;
 }
+
 .textbox{
     margin-top: 1.3rem;
     font-size: 3vmin;
-    padding: 7px;
+    padding: 12px;
     width: 80%;
     margin-left: 10%;
     margin-right: 10%;
-    background-color: #ffffffea;
-    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 6px;
     border: none;
-    border-bottom: 2px solid white;
+    border-left: 3px solid #fafc93;
     color: #0e2929;
+    transition: all 0.3s ease;
+}
+
+.textbox:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(250, 252, 147, 0.3);
+    transform: translateY(-2px);
 }
 
 .subb{
     color: #0e2929;
     font-size: 3.5vmin;
-    padding: 4px 7px;
+    padding: 8px 20px;
     font-weight: 600;
-    background-color:lavenderblush;
+    background-color: #fafc93;
     border: none;
     border-radius: 6px;
     margin-top: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.subb:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.subb:active {
+    transform: translateY(1px);
 }
 
 @media only screen and (max-width: 550px) {
     .subb{
         font-size: 4vmin;
-        border-radius: 3px;
+        border-radius: 4px;
+        padding: 6px 16px;
     }
     .textbox{
         margin-top: 1rem;
@@ -55,14 +99,33 @@
         margin-left: 0;
         margin-right: 0;
         font-size: 3.5vmin;
+        padding: 10px;
     }
     .form-cont h3{
-        font-size: 4vmin;
+        font-size: 4.5vmin;
     }
     .form-cont{
+        width: 90%;
+        padding: 25px 20px 30px 20px;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 120px;
+    }
+}
+
+/* Tablet Responsive Design */
+@media only screen and (min-width: 551px) and (max-width: 900px) {
+    .form-cont {
         width: 80%;
-        padding: 25px 30px 30px 30px;
         margin-left: 10%;
         margin-right: 10%;
+        padding: 30px;
+        margin-top: 150px;
+    }
+    
+    .textbox {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
     }
 }
