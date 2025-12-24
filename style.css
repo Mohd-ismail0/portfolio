@@ -468,6 +468,65 @@ footer{
     transform: translateY(-5px);
 }
 
+/* Hobbies Section */
+.hobbies-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.hobby-item {
+    background-color: #0e2929;
+    border-radius: 12px;
+    padding: 25px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-left: 4px solid #fafc93;
+    display: flex;
+    flex-direction: column;
+}
+
+.hobby-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hobby-item h3 {
+    font-size: 2.8vmin;
+    margin-bottom: 15px;
+    color: #fafc93;
+    letter-spacing: 0.5px;
+}
+
+.hobby-item p {
+    font-size: 2.5vmin;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.hobby-link {
+    color: #fafc93;
+    text-decoration: none;
+    font-size: 2.2vmin;
+    padding: 8px 0;
+    display: inline-block;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    margin-top: auto;
+}
+
+.hobby-link:hover {
+    color: white;
+    transform: translateX(5px);
+}
+
+.hobby-link i {
+    margin-left: 5px;
+    font-size: 2vmin;
+}
+
 /* Brands Section */
 .brands-container {
     display: grid;
@@ -713,22 +772,28 @@ footer{
         margin-bottom: 30px;
     }
     
-    .projects-grid, .experience-container, .skills-container {
+    .projects-grid, .experience-container, .skills-container, .hobbies-container {
         grid-template-columns: 1fr;
         gap: 25px;
     }
     
-    .project-card, .experience-block, .skills-block, .journey-container {
+    .project-card, .experience-block, .skills-block, .hobby-item, .journey-container {
         padding: 20px;
     }
     
-    .project-card h3, .experience-block h3, .skills-block h3 {
+    .project-card h3, .experience-block h3, .skills-block h3, .hobby-item h3 {
         font-size: 4.2vmin;
         text-align: left;
     }
     
-    .project-card p, .experience-block li, .skills-block li {
+    .project-card p, .experience-block li, .skills-block li, .hobby-item p {
         font-size: 3.8vmin;
+    }
+    
+    .hobby-link {
+        font-size: 3.2vmin;
+        text-align: center;
+        margin-top: 15px;
     }
     
     .tech-stack {
@@ -802,7 +867,7 @@ footer{
         width: 85%;
     }
     
-    .projects-grid, .experience-container {
+    .projects-grid, .experience-container, .hobbies-container {
         grid-template-columns: 1fr;
     }
     
@@ -810,12 +875,16 @@ footer{
         grid-template-columns: repeat(2, 1fr);
     }
     
-    .project-card h3, .experience-block h3, .skills-block h3 {
+    .project-card h3, .experience-block h3, .skills-block h3, .hobby-item h3 {
         font-size: 3.5vmin;
     }
     
-    .project-card p, .experience-block li, .skills-block li, .journey-container p {
+    .project-card p, .experience-block li, .skills-block li, .hobby-item p, .journey-container p {
         font-size: 3vmin;
+    }
+    
+    .hobby-link {
+        font-size: 2.8vmin;
     }
     
     .brands-container {
