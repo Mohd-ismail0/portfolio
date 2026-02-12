@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Mohd Ismail">
+    <meta name="description" content="Blog posts by Mohammed Ismail on technology, entrepreneurship, and building AI-native businesses.">
+    <title>Blog | Mohd Ismail</title>
+    <link rel="shortcut icon" href="./assets/mdil0.1.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <img src="./assets/mdil.png" alt="MDIL" class="navbarlogo">
+        <div class="topnav">
+            <a href="index.html">Home</a>
+            <a href="blog.html" class="active">Blog</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <main class="blog-shell section-container">
+        <h1 class="section-title">BLOG</h1>
+        <p class="blog-subtitle">Thoughts on building products, international trade, and AI-first operations.</p>
+
+        <div id="blog-status" class="blog-status">Loading posts...</div>
+        <div id="blog-list" class="blog-list" aria-live="polite"></div>
+        <article id="blog-article" class="blog-article" hidden></article>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="./script.js"></script>
+    <script src="./blog.js"></script>
+</body>
+</html>
