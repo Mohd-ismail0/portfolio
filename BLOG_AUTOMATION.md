@@ -3,7 +3,8 @@
 This repo now uses a static blog architecture designed for low maintenance and easy automation:
 
 - Post markdown files: `blog/posts/*.md`
-- Manifest/index: `blog/posts.json`
+- Auto-generated manifest/index: `blog/posts.json`
+- Generator script: `scripts/generate-posts-json.mjs`
 - Reader UI: `blog.html` + `blog.js`
 
 ## Why this is the best minimal approach
@@ -13,31 +14,42 @@ This repo now uses a static blog architecture designed for low maintenance and e
 3. **Custom GPT-ready**: GPT Actions can call GitHub APIs to write files.
 4. **Predictable deployment**: every push triggers Netlify auto-deploy.
 
-## How your Custom GPT should publish a new blog
+## Build-time generation on Netlify
 
-For each new post, it should do two GitHub API writes:
+`netlify.toml` runs this command during each deploy:
 
-1. Create markdown file at: `blog/posts/<slug>.md`
-2. Update `blog/posts.json` to prepend the new post object.
-
-### Post object format in `blog/posts.json`
-
-```json
-{
-  "slug": "my-new-post",
-  "title": "My New Post",
-  "date": "2026-02-12",
-  "excerpt": "1-2 sentence summary",
-  "path": "./blog/posts/my-new-post.md"
-}
+```bash
+node scripts/generate-posts-json.mjs
 ```
+
+The script scans `blog/posts/*.md`, reads optional frontmatter, and writes `blog/posts.json` automatically.
+
+## Markdown frontmatter (recommended)
+
+Each post can include YAML-style frontmatter for explicit metadata:
+
+```md
+---
+title: My New Post
+date: 2026-02-12
+excerpt: 1-2 sentence summary
+slug: my-new-post
+---
+
+Post body...
+```
+
+If fields are missing, the script falls back to sensible defaults:
+
+- `slug`: filename without `.md`
+- `title`: title-cased slug
+- `date`: file modified date
+- `excerpt`: first paragraph of content
 
 ## Suggested GPT Action API surface
 
 Use GitHub REST API through an Action (recommended endpoints):
 
-- `GET /repos/{owner}/{repo}/contents/blog/posts.json`
-- `PUT /repos/{owner}/{repo}/contents/blog/posts.json`
 - `PUT /repos/{owner}/{repo}/contents/blog/posts/{slug}.md`
 
 Auth: GitHub PAT with `repo` scope (or fine-grained contents write on this repo).
@@ -51,6 +63,4 @@ If needed, add a second Action to call a Netlify Build Hook URL after committing
 
 - Slug is lowercase with dashes only.
 - Date in `YYYY-MM-DD`.
-- Ensure `path` and filename match slug exactly.
-- Avoid duplicate slug entries in `blog/posts.json`.
-
+- Ensure frontmatter `slug` and filename align.

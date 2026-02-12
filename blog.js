@@ -28,11 +28,12 @@
     }
 
     const markdown = await response.text();
+    const markdownWithoutFrontmatter = markdown.replace(/^---\n[\s\S]*?\n---\n?/, '');
     articleEl.innerHTML = `
       <a class="project-link" href="blog.html"><i class="fa fa-arrow-left"></i> Back to all posts</a>
       <p class="blog-meta">${post.date}</p>
       <h2>${post.title}</h2>
-      <div class="blog-content">${marked.parse(markdown)}</div>
+      <div class="blog-content">${marked.parse(markdownWithoutFrontmatter)}</div>
     `;
     articleEl.hidden = false;
     listEl.hidden = true;
