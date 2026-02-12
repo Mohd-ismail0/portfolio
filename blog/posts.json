@@ -1,0 +1,9 @@
+[
+  {
+    "slug": "launching-the-blog",
+    "title": "Launching a Lightweight Blog for This Portfolio",
+    "date": "2026-02-12",
+    "excerpt": "Why I chose a markdown + JSON manifest approach that works well with Netlify free tier and automation.",
+    "path": "./blog/posts/launching-the-blog.md"
+  }
+]
