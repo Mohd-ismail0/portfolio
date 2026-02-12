@@ -1,3 +1,9 @@
+---
+title: Launching a Lightweight Blog for This Portfolio
+date: 2026-02-12
+excerpt: Why I chose a markdown + JSON manifest approach that works well with Netlify free tier and automation.
+---
+
 This blog is now powered by a **minimal static setup**:
 
 - Each post is a markdown file in `blog/posts/`.

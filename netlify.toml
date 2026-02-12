@@ -1,0 +1,3 @@
+[build]
+  command = "node scripts/generate-posts-json.mjs"
+  publish = "."
